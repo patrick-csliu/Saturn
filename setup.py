@@ -6,7 +6,7 @@ setup(
             name="testpackage.mydemo",  # as it would be imported
                             # may include packages/namespaces separated by `.`
 
-            sources=["./src/c/mydemo.c"], # all sources are compiled into a single binary file
+            sources=["./src/testpackage/c/mydemo.c"], # all sources are compiled into a single binary file
         ),
     ]
 )
