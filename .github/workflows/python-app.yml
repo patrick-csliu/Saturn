@@ -38,4 +38,4 @@ jobs:
     #   run: |
     #     pytest
     - name: Run the test
-      run: python testpackage/test/test.py
+      run: python src/testpackage/test/test.py
