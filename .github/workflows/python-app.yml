@@ -57,3 +57,14 @@ jobs:
       run: echo ${{ github.ref_name }}
     - name: test3
       run: echo ${{ github.ref_type }}
+  
+  # testing
+  test:
+
+    runs-on: ubuntu-latest
+    
+    if: startsWith(github.action_ref, 'refs/tags/')
+
+    steps:
+      - name: test4
+        run: echo true
