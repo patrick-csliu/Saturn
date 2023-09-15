@@ -6,7 +6,8 @@ name: Python application
 on:
   push:
     branches: [ "master" ]
-    tags: []
+    tags-ignore:
+    - '**'
   pull_request:
     branches: [ "master" ]
 
