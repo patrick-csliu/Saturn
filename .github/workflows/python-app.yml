@@ -6,6 +6,8 @@ name: Python application
 on:
   push:
     branches: [ "master" ]
+    tags:
+      - '*'
   pull_request:
     branches: [ "master" ]
 
@@ -41,3 +43,8 @@ jobs:
       run : pip install .
     - name: Run the test
       run: python src/testpackage/test/test.py
+    - name: Upload /dist
+      uses: actions/upload-artifact@v3
+      with:
+        name: dist-dir
+        path: dist
