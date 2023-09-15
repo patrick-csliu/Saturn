@@ -17,16 +17,17 @@ permissions:
 jobs:
   info:
     runs-on: ubuntu-latest
+    steps:
     - name: test1
-    run: |
-      echo ${{ github.ref }}
-      echo ${{ github.ref_name }}
-      echo ${{ github.ref_type }}
+      run: |
+        echo ${{ github.ref }}
+        echo ${{ github.ref_name }}
+        echo ${{ github.ref_type }}
 
   test:
     runs-on: ubuntu-latest
     if: startsWith(github.action_ref, 'refs/tags/')
     steps:
-      - name: test4
-        run: echo true
+    - name: test4
+      run: echo true
 
