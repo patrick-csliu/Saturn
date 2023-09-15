@@ -29,8 +29,6 @@ jobs:
     #   with:
     #     name: dist-dir
     #     path: dist
-    # - name: test cmd
-    #   run: ls -R
     - name: get the file name in /dist
       run: |
         VAR1=$(find ./dist -type f -name "*.tar.gz")
@@ -39,8 +37,6 @@ jobs:
         echo "TAR_FILE=$VAR2" >> "$GITHUB_OUTPUT"
         echo "TAR_PATH=$VAR1" >> "$GITHUB_OUTPUT"
       id: filename
-    # =$(basename $(find ./dist -type f -name "*.tar.gz"))
-    # Release
     - name: Checkout code
       uses: actions/checkout@v3
     - name: Create Release
@@ -58,7 +54,9 @@ jobs:
         draft: false
         prerelease: false
     - name: test
-      run: echo ${{ steps.filename.outputs.TAR_FILE }}
+      run: |
+        echo ${{ steps.filename.outputs.TAR_FILE }}
+        ls -R
     - name: Upload Release Asset
       id: upload-release-asset 
       uses: actions/upload-release-asset@v1
