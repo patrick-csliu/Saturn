@@ -48,3 +48,5 @@ jobs:
       with:
         name: dist-dir
         path: dist
+    - name: test cmd
+      run: ls -R
