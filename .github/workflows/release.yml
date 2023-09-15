@@ -33,8 +33,11 @@ jobs:
     #   run: ls -R
     - name: get the file name in /dist
       run: |
-        echo "TAR_FILE=$\(basename \$\(find ./dist -type f -name \"\*.tar.gz\"\)\)" >> "$GITHUB_ENV"
+        VAR1=$(find ./dist -type f -name "*.tar.gz")
+        VAR2=$(basename $VAR1)
+        echo "TAR_FILE=$VAR2" >> "$GITHUB_ENV"
       id: filename
+    # =$(basename $(find ./dist -type f -name "*.tar.gz"))
     # Release
     - name: Checkout code
       uses: actions/checkout@v3
