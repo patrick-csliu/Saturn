@@ -50,3 +50,10 @@ jobs:
         path: dist
     - name: test cmd
       run: ls -R
+    # testing
+    - name: test1
+      run: echo ${{ github.ref }}
+    - name: test2
+      run: echo ${{ github.ref_name }}
+    - name: test3
+      run: echo ${{ github.ref_type }}
