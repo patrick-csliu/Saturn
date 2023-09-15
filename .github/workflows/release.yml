@@ -37,6 +37,7 @@ jobs:
         VAR2=$(basename $VAR1)
         echo $VAR2
         echo "TAR_FILE=$VAR2" >> "$GITHUB_OUTPUT"
+        echo "TAR_PATH=$VAR1" >> "$GITHUB_OUTPUT"
       id: filename
     # =$(basename $(find ./dist -type f -name "*.tar.gz"))
     # Release
@@ -65,7 +66,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-        asset_path: ./dist/*tar.gz
+        asset_path: ${{ steps.filename.outputs.TAR_PATH }}
         asset_name: ${{ steps.filename.outputs.TAR_FILE }}
         asset_content_type: application/gzip
 
