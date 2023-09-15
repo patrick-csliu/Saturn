@@ -6,8 +6,6 @@ name: Python application
 on:
   push:
     branches: [ "master" ]
-    tags-ignore:
-    - '**'
   pull_request:
     branches: [ "master" ]
 
@@ -62,7 +60,7 @@ jobs:
   test:
 
     runs-on: ubuntu-latest
-    
+
     if: startsWith(github.action_ref, 'refs/tags/')
 
     steps:
