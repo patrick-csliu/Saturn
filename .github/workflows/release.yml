@@ -24,16 +24,16 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: build package
       run : python -m build
-    - name: Upload /dist
-      uses: actions/upload-artifact@v3
-      with:
-        name: dist-dir
-        path: dist
-    - name: test cmd
-      run: ls -R
+    # - name: Upload /dist
+    #   uses: actions/upload-artifact@v3
+    #   with:
+    #     name: dist-dir
+    #     path: dist
+    # - name: test cmd
+    #   run: ls -R
     - name: get the file name in /dist
       run: |
-        echo "TAR_FILE=$(basename $(find ./dist -type f -name "*.tar.gz"))" >> "$GITHUB_ENV"
+        echo "TAR_FILE=$\(basename \$\(find ./dist -type f -name \"\*.tar.gz\"\)\)" >> "$GITHUB_ENV"
       id: filename
     # Release
     - name: Checkout code
