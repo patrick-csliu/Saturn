@@ -31,6 +31,10 @@ jobs:
         path: dist
     - name: test cmd
       run: ls -R
+    - name: get the file name in /dist
+      run: |
+        echo "TAR_FILE=$(basename $(find ./dist -type f -name "*.tar.gz"))" >> "$GITHUB_ENV"
+      id: filename
     # Release
     - name: Checkout code
       uses: actions/checkout@v3
@@ -56,7 +60,7 @@ jobs:
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
         asset_path: ./dist/*tar.gz
-        # asset_name: my-artifact.zip
+        asset_name: ${{ steps.filename.outputs.TAR_FILE }}
         asset_content_type: application/gzip
 
   # Release:
