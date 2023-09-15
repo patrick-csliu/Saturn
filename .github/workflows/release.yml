@@ -35,6 +35,7 @@ jobs:
       run: |
         VAR1=$(find ./dist -type f -name "*.tar.gz")
         VAR2=$(basename $VAR1)
+        echo $VAR2
         echo "TAR_FILE=$VAR2" >> "$GITHUB_ENV"
       id: filename
     # =$(basename $(find ./dist -type f -name "*.tar.gz"))
