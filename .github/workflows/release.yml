@@ -28,7 +28,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: python-package-distributions
-        path: dist
+        path: dist/*.tar.gz
     - name: get the file name in /dist
       run: |
         VAR1=$(find ./dist -type f -name "*.tar.gz")
