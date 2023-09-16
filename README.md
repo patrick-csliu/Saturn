@@ -1,7 +1,7 @@
 # Saturn
 
 This repository is for practice and testing. (git <--> github)
-* The project inside is testing package for python and C extension packaging.
+* The project inside is testing package for Python and C extension packaging.
 * CI/CD practice
 
 ---
@@ -17,5 +17,5 @@ This repository is for practice and testing. (git <--> github)
 ![Static Badge](https://badgen.net/badge/badgen.net/badge?icon=apple&color=cyan&labelColor=blue&scale=1.5)
 
 
-documents:
+Documents:
 [Packing a Package](./docs/packing_a_package.md)
