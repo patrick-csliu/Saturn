@@ -62,6 +62,3 @@ jobs:
         asset_path: ${{ steps.filename.outputs.TAR_PATH }}
         asset_name: ${{ steps.filename.outputs.TAR_FILE }}
         asset_content_type: application/gzip
-
-    - name: test
-      run: exit 1
