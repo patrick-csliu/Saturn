@@ -1,9 +1,6 @@
 """test package"""
 
-from testpackage import run
-from testpackage import _mydemo
+from testpackage import main
 
-run.hello()
-
-value = _mydemo.print_hello()
-print(f"output from mydemo.print_hello(): {value}")
+main.hello()
+main.mydemo()
