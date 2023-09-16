@@ -45,10 +45,7 @@ jobs:
       with:
         tag_name: ${{ github.ref }}
         release_name: Release ${{ github.ref }}
-        body: |
-          Changes in this Release
-          - First Change
-          - Second Change
+        body_path: ./docs/packing_a_package.md
         draft: false
         prerelease: false
     # - name: check things is going right
@@ -65,3 +62,6 @@ jobs:
         asset_path: ${{ steps.filename.outputs.TAR_PATH }}
         asset_name: ${{ steps.filename.outputs.TAR_FILE }}
         asset_content_type: application/gzip
+
+    - name: test
+      run: exit 1
