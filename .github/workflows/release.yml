@@ -64,5 +64,4 @@ jobs:
         asset_content_type: application/gzip
 
     - name: test
-      run: exit 1
-      
+      run: exit 2
