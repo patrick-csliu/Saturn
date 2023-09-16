@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Set up Python 3.11
       uses: actions/setup-python@v4
       with:
@@ -24,11 +24,11 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: build package
       run : python -m build
-    # - name: Upload /dist
-    #   uses: actions/upload-artifact@v3
-    #   with:
-    #     name: dist-dir
-    #     path: dist
+    - name: Upload /dist
+      uses: actions/upload-artifact@v3
+      with:
+        name: python-package-distributions
+        path: dist
     - name: get the file name in /dist
       run: |
         VAR1=$(find ./dist -type f -name "*.tar.gz")
@@ -62,3 +62,26 @@ jobs:
         asset_path: ${{ steps.filename.outputs.TAR_PATH }}
         asset_name: ${{ steps.filename.outputs.TAR_FILE }}
         asset_content_type: application/gzip
+  publish-to-testpypi:
+    name: Publish Python distribution 📦 to TestPyPI
+    needs:
+    - build
+    runs-on: ubuntu-latest
+
+    environment:
+      name: testpypi
+      url: https://test.pypi.org/p/pypackage_test
+
+    permissions:
+      id-token: write  # IMPORTANT: mandatory for trusted publishing
+
+    steps:
+    - name: Download all the dists
+      uses: actions/download-artifact@v3
+      with:
+        name: python-package-distributions
+        path: dist/
+    - name: Publish distribution 📦 to TestPyPI
+      uses: pypa/gh-action-pypi-publish@release/v1
+      with:
+        repository-url: https://test.pypi.org/legacy/
