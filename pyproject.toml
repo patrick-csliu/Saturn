@@ -3,8 +3,9 @@ requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [project]
+dynamic = ["version"]
 name = "pypackage_test"
-version = "1.2.3"
+# version = "1.2.3"
 authors = [
   { name="Patrick Liu", email="author@example.com" },
 ]
