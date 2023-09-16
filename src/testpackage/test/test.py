@@ -1,10 +1,9 @@
 """test package"""
 
 from testpackage import run
-from testpackage import mydemo
+from testpackage import _mydemo
 
-print(run.cos10())
 run.hello()
 
-value = mydemo.print_hello()
+value = _mydemo.print_hello()
 print(f"output from mydemo.print_hello(): {value}")

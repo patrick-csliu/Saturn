@@ -22,15 +22,15 @@ static PyMethodDef mydemoMethods[] = {
 
 static struct PyModuleDef spammodule = {
     PyModuleDef_HEAD_INIT,
-    "mydemo",   /* name of module */
-    "this is some mydemo's doc", /* module documentation, may be NULL */
+    "_mydemo",   /* name of module */
+    "this is a mydemo's doc", /* module documentation, may be NULL */
     -1,       /* size of per-interpreter state of the module,
                  or -1 if the module keeps state in global variables. */
     mydemoMethods
 };
 
 PyMODINIT_FUNC
-PyInit_mydemo(void)
+PyInit__mydemo(void) /* module name is _mydemo */
 {
     PyObject *m;
 
