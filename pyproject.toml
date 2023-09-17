@@ -1,25 +1,19 @@
 [build-system]
-requires = ["setuptools"]
+requires = [ "setuptools>=62.0", "build>=1.0.3",]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "pypackage_test"
-version = "1.2.3"
-authors = [
-  { name="Patrick Liu", email="author@example.com" },
-]
+version = "v1.0.36"
 description = "test package, C build, python package."
-readme = "README.md"
+readme = "docs/packing_a_package.md"
 requires-python = ">=3.9"
-dependencies = [
-    "test-test-test",
-]
-classifiers = [
-    "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License",
-    "Operating System :: OS Independent",
-]
+dependencies = [ "build",]
+classifiers = [ "Programming Language :: Python :: 3", "License :: OSI Approved :: MIT License", "Operating System :: OS Independent",]
+[[project.authors]]
+name = "Patrick Liu"
+email = "author@example.com"
 
 [project.urls]
-"Homepage" = "https://github.com/patrick-csliu/Saturn"
+Homepage = "https://github.com/patrick-csliu/Saturn"
 "Bug Tracker" = "https://github.com/patrick-csliu/Saturn/issues"
