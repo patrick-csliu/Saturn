@@ -9,10 +9,10 @@ authors = [
   { name="Patrick Liu", email="author@example.com" },
 ]
 description = "test package, C build, python package."
-readme = "README.md"
+readme = "docs/packing_a_package.md"
 requires-python = ">=3.9"
 dependencies = [
-    "test-test-test",
+    "build",
 ]
 classifiers = [
     "Programming Language :: Python :: 3",
