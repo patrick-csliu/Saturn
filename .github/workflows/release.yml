@@ -26,8 +26,6 @@ jobs:
         python version.py ${{ github.ref }}
     - name: build package
       run : python -m build
-    - name: Build wheels
-      run: python -m cibuildwheel --output-dir wheelhouse
     - name: Upload /dist
       uses: actions/upload-artifact@v3
       with:
@@ -96,6 +94,7 @@ jobs:
     name: Publish Python distribution 📦 to TestPyPI
     needs:
     - build
+    - build_wheels
     runs-on: ubuntu-latest
 
     environment:
