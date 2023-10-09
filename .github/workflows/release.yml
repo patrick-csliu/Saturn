@@ -30,8 +30,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: python-package-distributions
-        path: |
-          dist/*.tar.gz
+        path: dist/*.tar.gz
     - name: get the file name in /dist
       run: |
         VAR1=$(find ./dist -type f -name "*.tar.gz")
@@ -90,6 +89,7 @@ jobs:
 
       - uses: actions/upload-artifact@v3
         with:
+          name: python-package-distributions
           path: ./wheelhouse/*.whl
   publish-to-testpypi:
     name: Publish Python distribution 📦 to TestPyPI
@@ -110,13 +110,9 @@ jobs:
       uses: actions/download-artifact@v3
       with:
         name: python-package-distributions
-        path: |
-          dist/
-          ./wheelhouse/*.whl
+        path: dist/
     - name: Publish distribution 📦 to TestPyPI
       uses: pypa/gh-action-pypi-publish@release/v1
       with:
         repository-url: https://test.pypi.org/legacy/
-        packages-dir: |
-          dist/
-          wheelhouse/*.whl
+        packages-dir: dist/
